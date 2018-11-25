@@ -6,10 +6,6 @@ context('Login', () => {
         cy.on('window:confirm', () => false);
         cy.fixture('users/caller')
             .as('user')
-<<<<<<< HEAD
-            .then(userCaller => {
-                user = userCaller;
-=======
             .then(user => {
                 cy.visit('https://www.dev.zetkin.org/')
                     .getByText('Log in')
@@ -45,7 +41,6 @@ context('Login', () => {
                     
 
                 
->>>>>>> 7cb51119cec235d55fe20828168c781a5df21966
             });
     });
 
