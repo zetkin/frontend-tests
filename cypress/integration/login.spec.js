@@ -4,12 +4,6 @@ context('Login', () => {
     beforeEach(() => {
         cy.on('window:confirm', () => false);
     });
-     it('doubleclicks', () => {
-        cy.visit('https://www.dev.zetkin.org/')
-        cy.get('Button Header-loginButton').dblclick()  
-           
-    });
-
     it('can be achieved from home page', () => {
         cy.fixture('users/admin')
             .as('user')
