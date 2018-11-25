@@ -1,0 +1,19 @@
+{
+  "name": "zetkin-frontend-tests",
+  "version": "1.0.0",
+  "description": "",
+  "main": " ",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zetkin/frontend-tests.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zetkin/frontend-tests/issues"
+  },
+  "homepage": "https://github.com/zetkin/frontend-tests#readme"
+}
