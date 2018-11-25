@@ -20,6 +20,29 @@ context('Login', () => {
                     .click()
                     .url()
                     .should('contain', '/dashboard');
+                   
+                    
+            });
+    });
+
+    it('can be accessed from the call page', () => {
+        cy.fixture('users/caller')
+            .as('user')
+            .then(user => {
+                cy.visit('https://call.dev.zetkin.org/')
+                    .getByText('Sign in')
+                    .click()
+                    .get('input[type=email]')
+                    .type(user.email)
+                    .get('input[type=password]')
+                    .type(user.password)
+                    .get('input[type=submit]')
+                    .click()
+                    .url()
+                    .should('contain', 'call.')                 
+                    
+
+                
             });
     });
 
