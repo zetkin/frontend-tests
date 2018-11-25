@@ -6,21 +6,23 @@ context('Login', () => {
         cy.on('window:confirm', () => false);
         cy.fixture('users/caller')
             .as('user')
-            .then(user => {
-                cy.visit('https://www.dev.zetkin.org/')
-                    .getByText('Log in')
-                    .click()
-                    .get('input[type=email]')
-                    .type(user.email)
-                    .get('input[type=password]')
-                    .type(user.password)
-                    .get('input[type=submit]')
-                    .click()
-                    .url()
-                    .should('contain', '/dashboard');
-                   
-                    
+            .then(userCaller => {
+              user = userCaller;          
             });
+    });
+    it('can be achieved from home page', () => {
+        cy.visit('https://www.dev.zetkin.org/')
+            .getByText('Log in')
+            .click()
+            .get('input[type=email]')
+            .type(user.email)
+            .get('input[type=password]')
+            .type(user.password)
+            .get('input[type=submit]')
+            .click()
+            .url()
+            .should('contain', '/dashboard');
+
     });
 
     it('can be accessed from the call page', () => {
@@ -38,26 +40,32 @@ context('Login', () => {
                     .click()
                     .url()
                     .should('contain', 'call.')                 
-                    
-
-                
             });
     });
+    it('can accessed the assignment page', () => {
+        cy.fixture('users/caller')
+        .as('user')
+        .then(user => {
+        cy.visit('https://call.dev.zetkin.org/')
+        .getByText('Sign in')
+        .click()
+        .get('input[type=email]')
+        .type(user.email)
+        .get('input[type=password]')
+        .type(user.password)
+        .get('input[type=submit]')
+        .click()
+        .url()
+        .should('contain', 'call.')
+        .wait (500)
+        .get('.Button')
+        .click()
+        .wait (500)
+        .get('.TutorialNote-closeLink')
+        .click();
+        });
+        });
 
-    it('can be achieved from home page', () => {
-        cy.visit('https://www.dev.zetkin.org/')
-            .getByText('Log in')
-            .click()
-            .get('input[type=email]')
-            .type(user.email)
-            .get('input[type=password]')
-            .type(user.password)
-            .get('input[type=submit]')
-            .click()
-            .url()
-            .should('contain', '/dashboard');
-
-    });
 
     it('works on mobile', () => {
         cy.viewport('iphone-6')
