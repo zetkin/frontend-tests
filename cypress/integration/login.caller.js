@@ -10,7 +10,8 @@ context('Login', () => {
               user = userCaller;          
             });
     });
-    it('can be achieved from home page', () => {
+
+    it('can be accessed from the home page', () => {
         cy.visit('https://www.dev.zetkin.org/')
             .getByText('Log in')
             .click()
