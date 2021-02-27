@@ -4,7 +4,6 @@ context('Login', () => {
     beforeEach(() => {
         cy.on('window:confirm', () => false);
     });
-
     it('can be achieved from home page', () => {
         cy.fixture('users/admin')
             .as('user')
@@ -118,4 +117,6 @@ context('Login', () => {
                     .should('contain', '/lost-password');
             });
     });
+   
+
 });
